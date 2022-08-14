@@ -1,3 +1,9 @@
+use sysinfo::{System, SystemExt};
+
 fn main() {
-    println!("Hello, world!");
+    let mut sys = System::new_all();
+    sys.refresh_all();
+    for disk in sys.disks() {
+        println!("{:?}", disk);
+    }
 }
